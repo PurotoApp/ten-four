@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Puroto Q and A</title>
+    <link rel="shortcut icon" href="/public/assets/plogo.svg" type="image/x-icon">
+    <link rel="icon" href="/public/assets/plogo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/contact.css">
+    <style>
+        #g-recaptcha-response {
+            display: block !important;
+            position: absolute;
+            margin: -78px 0 0 0 !important;
+            width: 302px !important;
+            height: 76px !important;
+            z-index: -999999;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body style="background-color:#222027;">
+    <form action="/api/send/" method="post">
+        <section class="hero is-fullheight is-dark" style="background-color:#222027;">
+            <div class="hero-body" style="background-color:#222027;">
+                <div class="container has-text-centered" style="background-color:#222027;">
+                    <div class="columns is-8 is-variable " style="background-color:#222027;">
+                        <div class="column is-two-thirds has-text-left">
+                            <h1 class="title is-1"> <img src="/public/assets/plogo.svg" style="max-height:80px; max-width:80px; overflow: hidden" alt="Logo">Puroto Q&A</h1>
+                            <p class="is-size-4">Do you have any questions, concerns, improvements, suggestions you want us to discuss ? <br> Submit it here!</p>
+                            <div class="social-media">
+                                <a href="https://www.puroto.net/" target="_blank" class="button is-dark is-large"><i class="fa fa-home" aria-hidden="true"></i></a>
+                                <a href="https://twitter.com/purotoapp" target="_blank" class="button is-dark is-large"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="column is-one-third has-text-left is-dark" style="background-color:#222027;">
+                            <div class="field">
+                                <label class="label has-text-white">Name</label>
+                                <h3 class="has-text-grey">(optional)</h3>
+                                <div class="control">
+                                    <input name="subname" class="input is-medium" type="text">
+                                </div>
+                            </div>
+                            <div class="field is-light">
+                                <label class="label is-dark has-text-white">Email</label>
+                                <h3 class="has-text-grey">(optional)</h3>
+                                <div class="control">
+                                    <input name="email" class="input is-medium" type="text">
+                                </div>
+                            </div>
+                            <div class="field is-dark">
+                                <label class="label has-text-white">Message</label>
+                                <div class="control">
+                                    <textarea required="true" name="msg" class="textarea is-medium"></textarea>
+                                </div>
+                            </div>
+                            <div class="control is-dark">
+                                <button type="submit" class="button is-link is-fullwidth has-text-weight-medium is-medium">Send Message</button>
+                            </div>
+                            <div class="h-captcha" data-sitekey="61a9479a-1b21-41ee-99c0-440f6dc1b3ae"></div>
+                            <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</body>
+<script>
+    window.onload = function() {
+        var $recaptcha = document.querySelector('#g-recaptcha-response');
+
+        if ($recaptcha) {
+            $recaptcha.setAttribute("required", "required");
+        }
+    };
+</script>
+
+</html>

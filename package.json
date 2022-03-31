@@ -1,0 +1,30 @@
+{
+    "name": "puroto-q-a",
+    "version": "1.0.0",
+    "description": "Purotos Q and A webapp",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./backend/index.js "
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/FissionFeline/Puroto-Q-A.git"
+    },
+    "keywords": [
+        "Puroto"
+    ],
+    "author": "Furious Feline",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/FissionFeline/Puroto-Q-A/issues"
+    },
+    "homepage": "https://github.com/FissionFeline/Puroto-Q-A#readme",
+    "dependencies": {
+        "dotenv": "^16.0.0",
+        "express": "^4.17.3",
+        "hcaptcha": "^0.1.1",
+        "nodemon": "^2.0.15",
+        "request": "^2.88.2"
+    }
+}
