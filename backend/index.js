@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 app.use(express.urlencoded({ extended: true }));
 
 const path = require('path')
-app.use('/public', express.static(path.join(__dirname, 'frontend')))
+app.use('/public', express.static(path.join(__dirname, '../frontend')))
 
 app.use('', routing)
 
