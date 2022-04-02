@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const routing = require("./routing_sys.js");
 require('dotenv').config()
+const Recaptcha = require('express-recaptcha').RecaptchaV3
 
 app.use((req, res, next) => {
     console.log(`New request`);
