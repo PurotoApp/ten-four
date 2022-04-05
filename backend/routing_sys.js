@@ -1,5 +1,6 @@
 module.exports = (function() {
     var route = require('express').Router();
+    const hcaptcha = require('express-hcaptcha');
     const path = require('path');
     const express = require('express')
 
