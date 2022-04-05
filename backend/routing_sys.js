@@ -1,5 +1,6 @@
 module.exports = (function() {
     var route = require('express').Router();
+    const { verify } = require('hcaptcha');
     const path = require('path');
     const express = require('express')
 
@@ -8,10 +9,15 @@ module.exports = (function() {
     });
 
     route.post('/api/send/', function(req, res, next) {
-        if (req.query.msg == undefined) {
-            res.sendFile(path.join(__dirname, '../frontend/index.html')); // add error page later
-        }
-        console.log(req.body.msg)
+        verify(process.env.HCAPTCHA_TOKEN, req.body["h-captcha-response"])
+            .then((data) => {
+                if (data.success === true) {
+                    console.log('success!', data);
+                } else {
+                    console.log('verification failed', data);
+                }
+            })
+            .catch(console.error);
         res.redirect('/');
     });
 
