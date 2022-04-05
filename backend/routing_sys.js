@@ -14,7 +14,7 @@ module.exports = (function() {
                 if (data.success === true) {
                     console.log('success!', data);
                 } else {
-                    console.log('verification failed');
+                    console.log('verification failed', data);
                 }
             })
             .catch(console.error);
