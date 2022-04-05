@@ -8,7 +8,7 @@ module.exports = (function() {
         res.sendFile(path.join(__dirname, '../frontend/index.html'));
     });
 
-    route.post('/api/send/', function(req, res, next) {
+    route.post('/api/send/', hcaptcha.middleware.validate(process.env.HCAPTCHA_TOKEN), function(req, res, next) {
         if (req.query.msg == undefined) {
             res.sendFile(path.join(__dirname, '../frontend/index.html')); // add error page later
         }
