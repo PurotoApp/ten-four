@@ -24,14 +24,15 @@ module.exports = (function() {
                         headers: headersOpt,
                         json: true,
                     }, function(error, response, body) {
-                        console.log(error)
+                        if (error) console.log(error)
                         console.log(response.status)
+                        next()
                     });
                 } else {
                     console.log('verification failed', data);
                 }
             })
-            .catch(console.error);
+            .catch(next());
         res.redirect('/');
     });
 
