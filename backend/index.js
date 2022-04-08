@@ -4,7 +4,6 @@ const routing = require("./routing_sys.js");
 require('dotenv').config()
 
 app.use((req, res, next) => {
-    console.log(`New request`);
     next();
 });
 
