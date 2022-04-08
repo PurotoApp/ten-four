@@ -29,7 +29,7 @@ module.exports = (function() {
                         next()
                     });
                 } else {
-                    console.log('verification failed', data);
+                    next()
                 }
             })
             .catch(next());
