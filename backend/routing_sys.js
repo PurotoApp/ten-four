@@ -9,6 +9,10 @@ module.exports = (function() {
         res.sendFile(path.join(__dirname, '../frontend/index.html'));
     });
 
+    route.get('/success', function(req, res, next) {
+        res.sendFile(path.join(__dirname, '../frontend/success.html'));
+    });
+
     route.post('/api/send/', function(req, res, next) {
         verify(process.env.HCAPTCHA_TOKEN, req.body["h-captcha-response"])
             .then((data) => {
@@ -26,6 +30,9 @@ module.exports = (function() {
                     }, function(error, response, body) {
                         if (error) console.log(error)
                         console.log(response.status)
+                        if (response.status == 200) {
+                            res.redirect('/success')
+                        }
                         next()
                     });
                 } else {
