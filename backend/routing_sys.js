@@ -18,6 +18,7 @@ module.exports = (function() {
             .then((data) => {
                 if (data.success === true) {
                     console.log('success!', data);
+
                     var headersOpt = {
                         'Content-Type': 'application/json',
                     };
@@ -28,19 +29,16 @@ module.exports = (function() {
                         headers: headersOpt,
                         json: true,
                     }, function(error, response, body) {
-                        if (error) console.log(error)
-                        console.log(response.status)
-                        if (response.status == 200) {
-                            res.redirect('/success')
-                        }
-                        next()
+                        if (error) next()
                     });
+                    console.log("all good")
                 } else {
+                    console.log("im causing this shit")
                     next()
                 }
             })
             .catch(next());
-        res.redirect('/');
+        console.log("What the")
     });
 
     route.use((req, res, next) => {
