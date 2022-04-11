@@ -25,7 +25,7 @@ module.exports = (function() {
                     request({
                         method: 'post',
                         url: process.env.WEBHOOKADD,
-                        form: { "content": `Name:${req.body.subname || "No name provided"}\nMessage:${req.body.email || "No email provided"}\nMessage:${req.body.msg || "No message error"}  ` },
+                        form: { "content": `Name:${req.body.subname || "No name provided"}\nMessage:${req.body.msg || "No message error"}  ` },
                         headers: headersOpt,
                         json: true,
                     }, function(error, response, body) {
