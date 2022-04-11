@@ -33,7 +33,7 @@ module.exports = (function() {
                     });
                     res.redirect("/success")
                 } else {
-                    console.log("im causing this shit")
+                    console.log("h captcha failed")
                     next()
                 }
             })
