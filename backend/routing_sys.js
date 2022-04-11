@@ -13,8 +13,8 @@ module.exports = (function() {
         res.sendFile(path.join(__dirname, '../frontend/success.html'));
     });
 
-    route.post('/api/send/', function(req, res, next) {
-        verify(process.env.HCAPTCHA_TOKEN, req.body["h-captcha-response"])
+    route.post('/api/send/', async function(req, res, next) {
+        await verify(process.env.HCAPTCHA_TOKEN, req.body["h-captcha-response"])
             .then((data) => {
                 if (data.success === true) {
                     console.log('success!', data);
@@ -37,8 +37,6 @@ module.exports = (function() {
                     next()
                 }
             })
-            .catch(next());
-        console.log("What the")
     });
 
     route.use((req, res, next) => {
