@@ -32,7 +32,6 @@ module.exports = (function() {
                         if (error) next()
                     });
                     res.redirect("/success")
-
                 } else {
                     console.log("im causing this shit")
                     next()
@@ -41,7 +40,7 @@ module.exports = (function() {
     });
 
     route.use((req, res, next) => {
-        res.sendFile(path.join(__dirname, '../frontend/404.html'));
+        res.sendFile(path.join(__dirname, '../frontend/error.html'));
     });
 
     return route;
