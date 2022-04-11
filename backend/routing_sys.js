@@ -31,7 +31,8 @@ module.exports = (function() {
                     }, function(error, response, body) {
                         if (error) next()
                     });
-                    console.log("all good")
+                    res.redirect("/success")
+
                 } else {
                     console.log("im causing this shit")
                     next()
