@@ -1,11 +1,17 @@
 const express = require('express');
 const app = express();
+const rateLimit = require('express-rate-limit')
 const routing = require("./routing_sys.js");
 require('dotenv').config()
 
-app.use((req, res, next) => {
-    next();
-});
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+})
+
+app.use(limiter)
 
 app.use(express.urlencoded({ extended: true }));
 
